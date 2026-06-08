@@ -1,14 +1,20 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import { Providers } from "@/components/Providers";
 import { Navbar } from "@/components/Navbar";
 import "./globals.css";
 
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "LendX — Collateralized Lending Protocol",
   description:
-    "Supply WETH collateral, borrow USDC, and earn yield on Base Sepolia. " +
-    "A production-grade DeFi lending protocol for learning.",
-  keywords: ["DeFi", "lending", "collateral", "WETH", "USDC", "Base Sepolia"],
+    "Supply WETH collateral, borrow USDC, and manage your health factor on Base Sepolia.",
+  icons: { icon: "/favicon.svg" },
 };
 
 export default function RootLayout({
@@ -17,11 +23,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
       <body>
         <Providers>
           <Navbar />
-          {/* Page content offset for fixed navbar */}
           <main className="pt-16">{children}</main>
         </Providers>
       </body>

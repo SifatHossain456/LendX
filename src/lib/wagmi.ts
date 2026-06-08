@@ -3,7 +3,7 @@ import { baseSepolia } from "wagmi/chains";
 
 export const wagmiConfig = getDefaultConfig({
   appName: "LendX — Collateralized Lending Protocol",
-  projectId: "lendx_demo_project_id",
+  projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID ?? "3a8170812b534d0ff9d794f19a901d64",
   chains: [baseSepolia],
   ssr: true,
 });
